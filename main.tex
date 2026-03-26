@@ -1,0 +1,204 @@
+\documentclass[12pt]{report} %He cambiado la clase de article a report para que soporte el uso de capítulos.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{titlesec}
+\usepackage{subfiles}
+
+\titleformat{\subsection}[hang] % Hang makes the title left-aligned
+  {\bfseries} % Make the title bold
+  {\thesubsection} % The number of the subsection
+  {1em} % Space between the number and the title
+  {} % Additional formatting (empty here, since we want no prefix)
+\titleformat{\subsection}[hang] % 'hang' for left-alignment
+  {\bfseries} % Make the title bold
+  {\thesubsection} % The numbering for the subsection
+  {1em} % Space between the number and the title
+  {\hspace{0.63cm}} % Add a custom indentation of 0.63 cm before the title
+\titleformat{\subsubsection}[hang]
+  {\itshape\bfseries} % Make the title bold and italic (cursive)
+  {\thesubsubsection} % The numbering for the subsubsection
+  {1em} % Space between the number and the title
+  {\hspace{0.63cm}} % Add a custom indentation of 0.63 cm before the title
+
+\renewcommand{\thechapter}{\Roman{chapter}}
+\renewcommand{\thesection}{\arabic{chapter}.\arabic{section}}
+\renewcommand{\thesubsection}{\arabic{chapter}.\arabic{section}.\arabic{subsection}}%Cambia la numeración completa a arábiga para secciones y subsecciones.
+\renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
+\renewcommand{\thetable}{\arabic{chapter}.\arabic{table}}
+\renewcommand{\theequation}{Ecuación \arabic{chapter}.\arabic{equation}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[colorlinks=true, linkcolor=black, citecolor=blue, urlcolor=blue, pdfpagelabels=false, plainpages=false]{hyperref}
+\usepackage{orcidlink}
+\usepackage{tocbibind} %Lista de figuras y tablas
+\usepackage{times} %TIMES NEW ROMAN
+\usepackage[utf8x]{inputenc}
+\setlength{\parindent}{0.63cm}
+\usepackage[spanish]{babel}
+\addto\captionsspanish{\renewcommand{\listtablename}{Índice de Tablas}}
+\usepackage{float}%IMAGENES FIJAS
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{calc}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{gensymb}
+\usepackage[backend=biber, style=apa]{biblatex} % Cargar biblatex con el estilo APA
+\addbibresource{Capitulos/references.bib} % Cargar tu archivo .bib donde está tu bibliografía
+\usepackage{setspace}%Incluyo el paquete para cambiar el interlineado del titulo
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\graphicspath{{images/}}
+%\usepackage{parskip}   %PERMITE SANGRIAAAAAA
+\usepackage{longtable}
+\usepackage{siunitx}
+%\usepackage{titlesec}%Lo uso para cambiar la ubicación de los títulos
+% Redefinir el formato del capítulo para centrarlo horizontal y verticalmente
+\titleformat{\chapter}[display]
+  {\normalfont\Large\bfseries\centering} % Estilo del título (centrado, grande, en negrita)
+  {\MakeUppercase{\chaptername} \thechapter} % Texto del título del capítulo (Capítulo I, Capítulo II, ...)
+  {0pt} % Espacio entre el número y el título
+  {\Large\MakeUppercase} % Tamaño del título
+
+\titlespacing*{\chapter}{0cm}{0cm}{} % Espaciado antes y después del título del capítulo para centrarlo verticalmente
+\usepackage{fancyhdr}
+\usepackage{vmargin}
+\usepackage[a4paper, left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
+
+\setmarginsrb{3 cm}{2.5 cm}{3 cm}{2.5 cm}{1 cm}{1.5 cm}{1 cm}{1.5 cm}
+\title{INFORME DE PRÁCTICA INTERMEDIA}				% Titulo
+\author{Chavez, E.}					    % Autor
+\date{\today}						% Fecha
+
+
+\makeatletter
+\let\thetitle\@title
+\let\theauthor\@author
+\let\thedate\@date
+\makeatother
+
+\pagestyle{fancy}
+\fancyhf{} % Clear all header and footer fields
+% Set the left header
+%\fancyhead[L]{Informe de práctica Inicial en Air Logistics Corp.}
+% Set the right header to show the page number
+%\fancyhead[R]{}
+% Ensure the footer is properly set up
+\fancyfoot[C]{} % Clear center footer
+\fancyfoot[L]{} % Clear left footer
+\fancyfoot[R]{\thepage} % Place the page number on the bottom right
+
+% Define a custom page style for chapters
+\fancypagestyle{plain}{
+  \fancyhf{} % Clear all header and footer fields
+  \fancyfoot[R]{\thepage} % Page number on bottom right
+}
+
+% This ensures that even the first page of a chapter will have the page number in the bottom-right corner
+\makeatletter
+\def\@afterindentfalse{\@afterindenttrue}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%SECCIÓN DE MACROS (COMANDOS PERSONALIZADOS)
+\newcommand{\porciento}{\%}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{titlepage}
+	\centering
+    \vspace*{0.0 cm}
+    \includegraphics[scale = 0.40]{Logos/FAIN-UNACH.png}\\[1.0 cm]	% Logo Universidad
+    \textsc{\LARGE Universidad Adventista de Chile}\\[2.0 cm]	    % Nombre Universidad
+	\textsc{\Large Ingeniería Civil Industrial}\\[0.5 cm] 	        % Carrera
+	% Nombre Curso
+    \rule{\linewidth}{0.2 mm} \\[0.4 cm]
+	%\begin{spacing}{1.5}
+    	{ \huge \bfseries \thetitle}\\
+	%\end{spacing}
+    \rule{\linewidth}{0.2 mm} \\[1.5 cm]
+
+	\begin{minipage}{0.4\textwidth}
+		\begin{center} \large
+			\emph{Autor:}\\
+            Eliecer Chavez \orcidlink{0009-0005-7288-2342}\linebreak\\
+            \emph{Empresa:}\\
+            Air Logistics Corp.\linebreak \\
+            \emph{Tutor Institucional;}\\
+            Ing. Ana Ruiz
+			\end{center}
+	\end{minipage}\\[2cm]
+	
+	{\large \thedate}\\[2 cm]
+ 
+	\vfill
+	
+\end{titlepage}
+\onehalfspacing
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% \tableofcontents
+%% \pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagenumbering{roman}
+\setcounter{page}{2}
+\makeatletter
+\renewcommand{\thepage}{\roman{page}}
+\makeatother
+
+\setmarginsrb{2.5 cm}{2.5 cm}{2.5 cm}{2.5 cm}{0 cm}{0 cm}{0 cm}{0 cm}
+
+\include{Capitulos/Agradecimientos}
+\newpage
+
+\phantomsection
+\addtocontents{toc}{\protect\setcounter{tocdepth}{-1}}
+\tableofcontents
+\addtocontents{toc}{\protect\setcounter{tocdepth}{2}} % Reset the TOC depth
+\listoffigures
+\newpage
+
+\titlespacing*{\chapter}{0cm}{0cm}{} % Espaciado antes y después del título del capítulo para centrarlo verticalmente
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\setmarginsrb{2.5 cm}{2.5 cm}{2.5 cm}{2.5 cm}{1 cm}{1.5 cm}{1 cm}{1.5 cm}
+\include{Capitulos/Captitulo1}
+
+
+
+
+\newpage
+\include{Capitulos/cap2}
+
+
+\newpage
+
+\include{Capitulos/Capitulo3}
+
+
+
+
+
+
+
+
+
+
+
+
+\titlespacing*{\chapter}{0pt}{0cm}{} % Center this chapter vertically
+
+\printbibliography
+\newpage
+
+
+\end{document}
